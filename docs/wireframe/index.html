@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexica — Wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    :root {
+      --color-bg:             #FAFAF8;
+      --color-surface:        #FFFFFF;
+      --color-surface-raised: #F4F3F0;
+      --color-text-primary:   #2C2C2A;
+      --color-text-secondary: #6B6B68;
+      --color-text-muted:     #9E9E9A;
+      --color-accent:         #00A896;
+      --color-accent-hover:   #008F7E;
+      --color-accent-subtle:  #E0F5F3;
+      --color-border:         #E8E7E4;
+      --color-shadow:         rgba(44, 44, 42, 0.08);
+      --font-display: 'Crimson Pro', Georgia, serif;
+      --font-ui:      'IBM Plex Sans', system-ui, sans-serif;
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+      --radius-full: 9999px;
+      --shadow-card:       0 2px 12px var(--color-shadow), 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-card-hover: 0 12px 40px var(--color-shadow), 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-btn:        0 1px 4px rgba(0,0,0,0.12);
+    }
+
+    [data-theme="dark"] {
+      --color-bg:             #1A1A18;
+      --color-surface:        #252523;
+      --color-surface-raised: #2E2E2C;
+      --color-text-primary:   #F0EFEB;
+      --color-text-secondary: #A8A8A5;
+      --color-text-muted:     #6B6B68;
+      --color-accent:         #00C4B0;
+      --color-accent-hover:   #00DBC5;
+      --color-accent-subtle:  #0D2E2B;
+      --color-border:         #363634;
+      --color-shadow:         rgba(0, 0, 0, 0.32);
+    }
+
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 0 48px;
+      transition: background 300ms ease, color 300ms ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Top Bar ───────────────────────────────────────────── */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .app-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+      pointer-events: auto;
+      opacity: 0.85;
+    }
+
+    .btn-theme {
+      pointer-events: auto;
+      width: 40px; height: 40px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-btn);
+      transition: background 150ms ease, color 150ms ease, transform 120ms ease;
+      outline: none;
+    }
+    .btn-theme:hover  { background: var(--color-surface-raised); }
+    .btn-theme:active { transform: scale(0.92); }
+    .btn-theme:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+    .icon-sun, .icon-moon { display: none; }
+    [data-theme="light"] .icon-sun  { display: block; }
+    [data-theme="dark"]  .icon-moon { display: block; }
+
+    /* ── Main Layout ───────────────────────────────────────── */
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      width: 100%;
+    }
+
+    /* ── Card Scene — GPU-accelerated 3D flip ──────────────── */
+    .card-scene {
+      width: min(calc(100% - 40px), 560px);
+      aspect-ratio: 5 / 4;
+      perspective: 1000px;
+      cursor: pointer;
+      /* promote the scene to its own layer */
+      isolation: isolate;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%; height: 100%;
+      transform-style: preserve-3d;
+      /* GPU-promoted layer + smooth non-spring easing */
+      will-change: transform;
+      transition: transform 480ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    /* ── Card Faces ────────────────────────────────────────── */
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      /* each face on its own GPU layer */
+      transform: translateZ(0);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 36px;
+      transition: box-shadow 200ms ease;
+    }
+
+    .card-back-face {
+      transform: translateZ(0) rotateY(180deg);
+    }
+
+    .card-scene:hover .card-face {
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    /* ── Card Front ────────────────────────────────────────── */
+    .card-front-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .sound-btn {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 36px; height: 36px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 150ms ease, background 150ms ease, transform 120ms ease;
+      outline: none;
+    }
+    .sound-btn:hover { color: var(--color-accent); background: var(--color-accent-subtle); }
+    .sound-btn:active { transform: scale(0.88); }
+    .sound-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+    .sound-btn.playing { color: var(--color-accent); }
+
+    .word-text {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 9vw, 76px);
+      font-weight: 400;
+      color: var(--color-text-primary);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+
+    .ipa-text {
+      font-family: var(--font-ui);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.01em;
+    }
+
+    /* Vietnamese subtitle — shown on card front */
+    .vn-text {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.01em;
+      text-align: center;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--color-accent-subtle);
+    }
+
+    /* ── Card Back ─────────────────────────────────────────── */
+    .back-word-label {
+      position: absolute;
+      top: 18px; right: 18px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--color-text-muted);
+      font-style: italic;
+    }
+
+    .card-back-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 14px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .pos-badge {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-subtle);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .definition-text {
+      font-family: var(--font-ui);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+
+    .example-divider {
+      width: 32px; height: 1px;
+      background: var(--color-border);
+    }
+
+    .example-text {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Next Word Button ──────────────────────────────────── */
+    .btn-next-word {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 32px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: var(--color-accent);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 168, 150, 0.32);
+      transition: background 150ms ease, box-shadow 150ms ease, transform 120ms ease;
+      outline: none;
+      will-change: transform;
+    }
+    .btn-next-word:hover {
+      background: var(--color-accent-hover);
+      box-shadow: 0 6px 20px rgba(0, 168, 150, 0.4);
+      transform: translateY(-1px);
+    }
+    .btn-next-word:active {
+      transform: scale(0.96) translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 168, 150, 0.28);
+    }
+    .btn-next-word:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+    /* ── Accessible helpers ─────────────────────────────────── */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ── Reduced Motion ────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .card-inner { transition-duration: 0ms; }
+      * { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <span class="app-logo">Lexica</span>
+    <button class="btn-theme" id="btn-theme" aria-label="Toggle dark mode">
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="sr-only" aria-live="polite" aria-atomic="true" id="live-region"></div>
+
+  <main class="main" role="main">
+
+    <!-- Card scene -->
+    <div
+      class="card-scene"
+      id="card-scene"
+      role="button"
+      tabindex="0"
+      aria-label="Vocabulary flashcard — tap to flip"
+    >
+      <div class="card-inner" id="card-inner">
+
+        <!-- FRONT FACE -->
+        <div class="card-face" id="card-front">
+
+          <button class="sound-btn" id="sound-btn" aria-label="Play pronunciation" aria-pressed="false">
+            <svg id="icon-speaker" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            </svg>
+            <svg id="icon-speaker-playing" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;color:var(--color-accent)">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </button>
+
+          <div class="card-front-inner">
+            <div class="word-text" id="word-display">ephemeral</div>
+            <div class="ipa-text" id="ipa-display">/ɪˈfem.ər.əl/</div>
+            <div class="vn-text" id="vn-display">phù du, thoáng qua</div>
+          </div>
+
+        </div><!-- /front -->
+
+        <!-- BACK FACE -->
+        <div class="card-face card-back-face" id="card-back">
+
+          <span class="back-word-label" id="back-word-label">ephemeral</span>
+
+          <div class="card-back-inner">
+            <span class="pos-badge" id="pos-display">adjective</span>
+            <p class="definition-text" id="definition-display">
+              Lasting for a very short time; transitory and fleeting in nature.
+            </p>
+            <div class="example-divider"></div>
+            <p class="example-text" id="example-display">
+              "The beauty of cherry blossoms is ephemeral — gone within a week."
+            </p>
+          </div>
+
+        </div><!-- /back -->
+
+      </div><!-- /card-inner -->
+    </div><!-- /card-scene -->
+
+    <!-- Next word button -->
+    <button class="btn-next-word" id="btn-next-word" aria-label="Load next random word">
+      Next Word
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </button>
+
+  </main>
+
+  <script>
+    // ── Vocabulary data ─────────────────────────────────────
+    const CARDS = [
+      { word: 'ephemeral',        ipa: '/ɪˈfem.ər.əl/',             pos: 'adjective', vietnamese: 'phù du, thoáng qua',        definition: 'Lasting for a very short time; transitory and fleeting in nature.',                              example: '"The beauty of cherry blossoms is ephemeral — gone within a week."' },
+      { word: 'sanguine',         ipa: '/ˈsæŋ.ɡwɪn/',               pos: 'adjective', vietnamese: 'lạc quan, tự tin',           definition: 'Optimistic or positive, especially in a difficult situation.',                                    example: '"She remained sanguine about the outcome despite the setbacks."' },
+      { word: 'mellifluous',      ipa: '/meˈlɪf.lu.əs/',             pos: 'adjective', vietnamese: 'du dương, êm tai',           definition: 'Sweet or musical; pleasant to hear; smooth and rich in sound.',                                   example: '"His mellifluous voice made every story come alive."' },
+      { word: 'perspicacious',    ipa: '/ˌpɜː.spɪˈkeɪ.ʃəs/',        pos: 'adjective', vietnamese: 'sắc sảo, nhạy bén',         definition: 'Having a ready insight into things; shrewdly perceptive.',                                       example: '"A perspicacious critic notices what others overlook."' },
+      { word: 'loquacious',       ipa: '/ləˈkweɪ.ʃəs/',              pos: 'adjective', vietnamese: 'hay nói, lắm lời',          definition: 'Tending to talk a great deal; talkative and garrulous.',                                         example: '"The loquacious host kept the party entertained all night."' },
+      { word: 'serendipity',      ipa: '/ˌser.ənˈdɪp.ɪ.ti/',         pos: 'noun',      vietnamese: 'may mắn ngẫu nhiên',        definition: 'The occurrence of pleasant or beneficial events by chance.',                                      example: '"Meeting him at the café was pure serendipity."' },
+      { word: 'ubiquitous',       ipa: '/juːˈbɪk.wɪ.təs/',           pos: 'adjective', vietnamese: 'có mặt khắp nơi',          definition: 'Present, appearing, or found everywhere simultaneously.',                                        example: '"Smartphones have become ubiquitous in modern life."' },
+      { word: 'ineffable',        ipa: '/ɪnˈef.ə.bəl/',              pos: 'adjective', vietnamese: 'không thể diễn tả',         definition: 'Too great or extreme to be expressed or described in words.',                                    example: '"She felt an ineffable joy the moment her daughter was born."' },
+      { word: 'incandescent',     ipa: '/ˌɪn.kænˈdes.ənt/',          pos: 'adjective', vietnamese: 'sáng rực, rực rỡ',          definition: 'Emitting light as a result of being heated; glowing brightly.',                                   example: '"Her incandescent smile lit up the entire room."' },
+      { word: 'verisimilitude',   ipa: '/ˌver.ɪ.sɪˈmɪl.ɪ.tjuːd/',   pos: 'noun',      vietnamese: 'tính chân thực',            definition: 'The appearance of being true or real; believable authenticity.',                                  example: '"The novel\'s verisimilitude made readers feel they lived in that era."' },
+      { word: 'quixotic',         ipa: '/kwɪkˈsɒt.ɪk/',              pos: 'adjective', vietnamese: 'viển vông, không thực tế', definition: 'Exceedingly idealistic; unrealistic and impractical.',                                           example: '"His quixotic dream of eradicating poverty inspired many."' },
+      { word: 'labyrinthine',     ipa: '/ˌlæb.ɪˈrɪn.θaɪn/',          pos: 'adjective', vietnamese: 'mê cung, rắc rối',          definition: 'Resembling a labyrinth; intricate and confusing in structure.',                                   example: '"The labyrinthine bureaucracy delayed the permit for months."' },
+      { word: 'soliloquy',        ipa: '/səˈlɪl.ə.kwi/',             pos: 'noun',      vietnamese: 'độc thoại',                 definition: 'An act of speaking one\'s thoughts aloud to oneself, especially in a play.',                     example: '"Hamlet\'s famous soliloquy begins with \'To be, or not to be.\'"' },
+      { word: 'pellucid',         ipa: '/peˈluː.sɪd/',                pos: 'adjective', vietnamese: 'trong suốt, rõ ràng',       definition: 'Translucently clear; easily understood; lucid.',                                                 example: '"Her pellucid prose made even complex ideas accessible."' },
+      { word: 'phantasmagoria',   ipa: '/fænˌtæz.məˈɡɔː.ri.ə/',      pos: 'noun',      vietnamese: 'ảo giác, huyễn hoặc',       definition: 'A sequence of real or imaginary images like a dream.',                                          example: '"The carnival was a phantasmagoria of lights and sounds."' },
+      { word: 'susurrus',         ipa: '/suːˈsʌr.əs/',                pos: 'noun',      vietnamese: 'tiếng thì thầm, xào xạc',  definition: 'A whispering or rustling sound, especially of leaves or wind.',                                   example: '"The susurrus of the pine trees lulled her to sleep."' },
+      { word: 'defenestration',   ipa: '/diːˌfen.ɪˈstreɪ.ʃən/',      pos: 'noun',      vietnamese: 'ném qua cửa sổ',            definition: 'The action of throwing someone out of a window.',                                                example: '"The defenestration of Prague triggered a major European conflict."' },
+      { word: 'petrichor',        ipa: '/ˈpet.rɪ.kɔːr/',              pos: 'noun',      vietnamese: 'mùi đất sau mưa',           definition: 'The pleasant smell that accompanies the first rain after a long dry period.',                      example: '"After months of drought, the petrichor was deeply comforting."' },
+      { word: 'crepuscular',      ipa: '/krɪˈpʌs.kjʊ.lər/',          pos: 'adjective', vietnamese: 'hoàng hôn, bình minh',      definition: 'Relating to or resembling twilight; active during dawn or dusk.',                                 example: '"Deer are crepuscular animals, most active at dawn and dusk."' },
+      { word: 'apricity',         ipa: '/əˈprɪs.ɪ.ti/',              pos: 'noun',      vietnamese: 'hơi ấm mặt trời mùa đông', definition: 'The warmth of the sun in winter.',                                                               example: '"She sat by the window, enjoying the apricity on a cold January afternoon."' },
+    ];
+
+    // ── State ───────────────────────────────────────────────
+    let shuffleQueue = [];  // remaining indices in shuffled order
+    let currentIdx   = 0;
+    let isFlipped    = false;
+    let isPlaying    = false;
+
+    // ── DOM refs ────────────────────────────────────────────
+    const cardInner   = document.getElementById('card-inner');
+    const cardScene   = document.getElementById('card-scene');
+    const wordDisplay = document.getElementById('word-display');
+    const ipaDisplay  = document.getElementById('ipa-display');
+    const vnDisplay   = document.getElementById('vn-display');
+    const posDisplay  = document.getElementById('pos-display');
+    const defDisplay  = document.getElementById('definition-display');
+    const exDisplay   = document.getElementById('example-display');
+    const backLabel   = document.getElementById('back-word-label');
+    const btnTheme    = document.getElementById('btn-theme');
+    const btnNext     = document.getElementById('btn-next-word');
+    const soundBtn    = document.getElementById('sound-btn');
+    const iconSpk     = document.getElementById('icon-speaker');
+    const iconPlaying = document.getElementById('icon-speaker-playing');
+    const liveRegion  = document.getElementById('live-region');
+
+    // ── Fisher-Yates shuffle ────────────────────────────────
+    function buildQueue(excludeIdx) {
+      const indices = CARDS.map((_, i) => i).filter(i => i !== excludeIdx);
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+      return indices;
+    }
+
+    // ── Render ──────────────────────────────────────────────
+    function renderCard(idx) {
+      const c = CARDS[idx];
+      wordDisplay.textContent = c.word;
+      ipaDisplay.textContent  = c.ipa;
+      vnDisplay.textContent   = c.vietnamese;
+      posDisplay.textContent  = c.pos;
+      defDisplay.textContent  = c.definition;
+      exDisplay.textContent   = c.example;
+      backLabel.textContent   = c.word;
+      liveRegion.textContent  = c.word;
+    }
+
+    // ── Flip ────────────────────────────────────────────────
+    function flipCard() {
+      isFlipped = !isFlipped;
+      cardInner.classList.toggle('flipped', isFlipped);
+    }
+
+    // ── TTS ─────────────────────────────────────────────────
+    function doSpeak(word) {
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(word);
+      utter.lang  = 'en-US';
+      utter.rate  = 0.85;
+      utter.onstart = () => {
+        isPlaying = true;
+        soundBtn.classList.add('playing');
+        soundBtn.setAttribute('aria-pressed', 'true');
+        iconSpk.style.display     = 'none';
+        iconPlaying.style.display = 'block';
+      };
+      utter.onend = utter.onerror = stopSound;
+      window.speechSynthesis.speak(utter);
+    }
+
+    function speak(word) {
+      if (!('speechSynthesis' in window)) return;
+      // voices may not be loaded yet on first call
+      const voices = window.speechSynthesis.getVoices();
+      if (voices.length > 0) {
+        doSpeak(word);
+      } else {
+        window.speechSynthesis.addEventListener('voiceschanged', function once() {
+          window.speechSynthesis.removeEventListener('voiceschanged', once);
+          doSpeak(word);
+        });
+      }
+    }
+
+    function stopSound() {
+      isPlaying = false;
+      soundBtn.classList.remove('playing');
+      soundBtn.setAttribute('aria-pressed', 'false');
+      iconSpk.style.display     = 'block';
+      iconPlaying.style.display = 'none';
+    }
+
+    // ── Load next random word ───────────────────────────────
+    function nextWord() {
+      // refill queue if exhausted
+      if (shuffleQueue.length === 0) {
+        shuffleQueue = buildQueue(currentIdx);
+      }
+      const nextIdx = shuffleQueue.pop();
+      currentIdx    = nextIdx;
+
+      // reset flip without animation glitch
+      if (isFlipped) {
+        cardInner.style.transition = 'none';
+        cardInner.classList.remove('flipped');
+        isFlipped = false;
+        // re-enable transition after a paint
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            cardInner.style.transition = '';
+          });
+        });
+      }
+
+      renderCard(currentIdx);
+      stopSound();
+      // slight delay so browser paints new word before speaking
+      setTimeout(() => speak(CARDS[currentIdx].word), 120);
+    }
+
+    // ── Dark mode ───────────────────────────────────────────
+    function toggleTheme() {
+      const html   = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    }
+
+    // ── Event listeners ─────────────────────────────────────
+    cardScene.addEventListener('click', flipCard);
+
+    soundBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      if (isPlaying) { window.speechSynthesis.cancel(); stopSound(); }
+      else { speak(CARDS[currentIdx].word); }
+    });
+
+    btnNext.addEventListener('click', nextWord);
+    btnTheme.addEventListener('click', toggleTheme);
+
+    // ── Init ─────────────────────────────────────────────────
+    shuffleQueue = buildQueue(-1);
+    currentIdx   = shuffleQueue.pop();
+    renderCard(currentIdx);
+    // speak immediately — voiceschanged handler covers the async case
+    speak(CARDS[currentIdx].word);
+  </script>
+</body>
+</html>

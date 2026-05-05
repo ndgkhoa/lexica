@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+	/* Colors — light */
+	--color-bg: #fafaf8;
+	--color-surface: #ffffff;
+	--color-surface-raised: #f4f3f0;
+	--color-text-primary: #2c2c2a;
+	--color-text-secondary: #6b6b68;
+	--color-text-muted: #9e9e9a;
+	--color-accent: #00a896;
+	--color-accent-hover: #008f7e;
+	--color-accent-subtle: #e0f5f3;
+	--color-border: #e8e7e4;
+	--color-shadow: rgba(44, 44, 42, 0.08);
+
+	/* Typography */
+	--font-display: "Crimson Pro", Georgia, serif;
+	--font-ui: "IBM Plex Sans", system-ui, sans-serif;
+
+	/* Spacing (4px base) */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-10: 40px;
+	--space-12: 48px;
+	--space-16: 64px;
+
+	/* Border radius */
+	--radius-sm: 6px;
+	--radius-md: 12px;
+	--radius-lg: 20px;
+	--radius-full: 9999px;
+
+	/* Shadows */
+	--shadow-card: 0 2px 12px var(--color-shadow);
+	--shadow-card-hover: 0 8px 32px var(--color-shadow);
+	--shadow-btn: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] {
+	--color-bg: #1a1a18;
+	--color-surface: #252523;
+	--color-surface-raised: #2e2e2c;
+	--color-text-primary: #f0efeb;
+	--color-text-secondary: #a8a8a5;
+	--color-text-muted: #6b6b68;
+	--color-accent: #00c4b0;
+	--color-accent-hover: #00dbc5;
+	--color-accent-subtle: #0d2e2b;
+	--color-border: #363634;
+	--color-shadow: rgba(0, 0, 0, 0.32);
+}
+
+body {
+	font-family: var(--font-ui);
+	background-color: var(--color-bg);
+	color: var(--color-text-primary);
+	transition:
+		background-color 300ms ease,
+		color 300ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+	}
+}
