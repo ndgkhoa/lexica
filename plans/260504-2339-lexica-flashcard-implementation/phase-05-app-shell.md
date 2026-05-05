@@ -7,7 +7,7 @@
 
 ## Overview
 - Priority: P0
-- Status: pending
+- Status: complete
 - Wire all hooks + components inside `App.tsx`. Add TopBar (logo + theme toggle), NextWordButton, accessibility live region.
 
 ## Key Insights
@@ -114,13 +114,13 @@ import { NextWordButton } from '@/components/next-word-button';
 9. Body styles in `index.css`: `min-h-screen flex flex-col items-center justify-center pt-20 pb-12`.
 
 ## Todo
-- [ ] Build `theme-toggle.tsx` with sun/moon SVGs
-- [ ] Build `top-bar.tsx` with pointer-events trick
-- [ ] Build `next-word-button.tsx`
-- [ ] Wire `App.tsx`: hooks + auto-TTS effect + layout
-- [ ] Verify in browser: card visible, flip works, next button cycles random, TTS auto-plays, theme persists across reload
-- [ ] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
-- [ ] Commit: `feat: app shell + integration`
+- [x] Build `theme-toggle.tsx` with sun/moon SVGs
+- [x] Build `top-bar.tsx` with pointer-events trick
+- [x] Build `next-word-button.tsx`
+- [x] Wire `App.tsx`: hooks + auto-TTS effect + layout
+- [x] Verify in browser: card visible, flip works, next button cycles random, TTS auto-plays, theme persists across reload
+- [x] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
+- [x] Commit: `feat: app shell + integration`
 
 ## Success Criteria
 - First load: random word displayed in Crimson Pro, TTS plays after voices load.

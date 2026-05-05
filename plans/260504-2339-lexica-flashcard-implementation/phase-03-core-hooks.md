@@ -8,7 +8,7 @@
 
 ## Overview
 - Priority: P0
-- Status: pending
+- Status: complete
 - Build three pure custom hooks: `useShuffle`, `useSpeech`, `useTheme`. Each ≤ 80 lines.
 
 ## Key Insights
@@ -77,13 +77,13 @@ All hook files import using `@/` alias, e.g. `import type { Word } from '@/types
 4. `toggle` via `useCallback`: `setTheme(t => t === 'dark' ? 'light' : 'dark')`.
 
 ## Todo
-- [ ] Implement `use-shuffle.ts` with Fisher-Yates queue
-- [ ] Implement `use-speech.ts` with voiceschanged fix
-- [ ] Implement `use-theme.ts` with localStorage + data-theme sync
-- [ ] Verify TS strict pass on all three
-- [ ] Manually test in browser console (temp wired into App.tsx placeholder)
-- [ ] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
-- [ ] Commit: `feat: core hooks (shuffle, speech, theme)`
+- [x] Implement `use-shuffle.ts` with Fisher-Yates queue
+- [x] Implement `use-speech.ts` with voiceschanged fix
+- [x] Implement `use-theme.ts` with localStorage + data-theme sync
+- [x] Verify TS strict pass on all three
+- [x] Manually test in browser console (temp wired into App.tsx placeholder)
+- [x] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
+- [x] Commit: `feat: core hooks (shuffle, speech, theme)`
 
 ## Success Criteria
 - Calling `next()` 100× never returns same index twice in a row.

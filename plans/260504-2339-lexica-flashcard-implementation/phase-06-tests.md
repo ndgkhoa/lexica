@@ -6,7 +6,7 @@
 
 ## Overview
 - Priority: P1
-- Status: pending
+- Status: complete
 - Add Vitest + RTL. Unit-test the three hooks (real implementations where feasible) and the FlashCard flip behavior.
 
 ## Key Insights
@@ -104,16 +104,16 @@ vite.config.ts              # test config
 8. Run `bun run test:run` — all green.
 
 ## Todo
-- [ ] Install testing deps
-- [ ] Configure Vitest in `vite.config.ts`
-- [ ] Author `setup.ts` with speechSynthesis stub
-- [ ] Test `useShuffle` (no consecutive repeats)
-- [ ] Test `useSpeech` (voiceschanged + immediate paths)
-- [ ] Test `useWords` (success + error paths)
-- [ ] Test FlashCard flip + sound stopPropagation
-- [ ] Verify `bun run test:run` exits 0
-- [ ] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
-- [ ] Commit: `test: hooks + FlashCard component`
+- [x] Install testing deps
+- [x] Configure Vitest in `vite.config.ts`
+- [x] Author `setup.ts` with speechSynthesis stub
+- [x] Test `useShuffle` (no consecutive repeats)
+- [x] Test `useSpeech` (voiceschanged + immediate paths)
+- [x] Test `useWords` (success + error paths)
+- [x] Test FlashCard flip + sound stopPropagation
+- [x] Verify `bun run test:run` exits 0
+- [x] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
+- [x] Commit: `test: hooks + FlashCard component`
 
 ## Success Criteria
 - `bun run test:run` exits 0 with ≥ 4 test files passing.

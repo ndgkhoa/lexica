@@ -7,7 +7,7 @@
 
 ## Overview
 - Priority: P0
-- Status: pending
+- Status: complete
 - Build the centerpiece: 3D-flip flashcard. CSS Modules holds **only** flip styles (perspective, rotateY, backface-visibility). Faces use Tailwind utilities + design tokens.
 
 ## Key Insights
@@ -107,14 +107,14 @@ import styles from './flash-card.module.css'; // relative — same dir, no alias
 8. Focus-visible: outline accent.
 
 ## Todo
-- [ ] Author `flash-card.module.css` with flip-only rules
-- [ ] Build `flash-card.tsx` (scene + flip state + word-change reset)
-- [ ] Build `flash-card-front.tsx`
-- [ ] Build `flash-card-back.tsx`
-- [ ] Build `sound-button.tsx` with `stopPropagation`
-- [ ] Manually verify in App.tsx: flip works, sound btn does NOT flip, fonts correct
-- [ ] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
-- [ ] Commit: `feat: FlashCard component with 3D flip`
+- [x] Author `flash-card.module.css` with flip-only rules
+- [x] Build `flash-card.tsx` (scene + flip state + word-change reset)
+- [x] Build `flash-card-front.tsx`
+- [x] Build `flash-card-back.tsx`
+- [x] Build `sound-button.tsx` with `stopPropagation`
+- [x] Manually verify in App.tsx: flip works, sound btn does NOT flip, fonts correct
+- [x] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
+- [x] Commit: `feat: FlashCard component with 3D flip`
 
 ## Success Criteria
 - Click on card body flips smoothly (480ms).

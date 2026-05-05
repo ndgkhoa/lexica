@@ -1,7 +1,7 @@
 ---
 title: "Lexica Flashcard App Implementation"
 description: "Single-screen React vocabulary flashcard app with 3D flip, TTS, dark mode."
-status: pending
+status: complete
 priority: P2
 effort: ~6h
 branch: main
@@ -22,12 +22,12 @@ Greenfield React vocabulary flashcard app. Single screen, centered card, 3D flip
 
 | # | Phase | Status | File |
 |---|---|---|---|
-| 1 | Project setup (Vite + Bun + React 19 + TS + Tailwind v4 + Fonts) | pending | [phase-01-project-setup.md](./phase-01-project-setup.md) |
-| 2 | Data layer (`words.json`, `Word` type, `useWords` hook) | pending | [phase-02-data-layer.md](./phase-02-data-layer.md) |
-| 3 | Core hooks (`useShuffle`, `useSpeech`, `useTheme`) | pending | [phase-03-core-hooks.md](./phase-03-core-hooks.md) |
-| 4 | FlashCard component (3D flip CSS Module, front/back, sound btn) | pending | [phase-04-flashcard-component.md](./phase-04-flashcard-component.md) |
-| 5 | App shell (TopBar, ThemeToggle, NextWordButton, App.tsx) | pending | [phase-05-app-shell.md](./phase-05-app-shell.md) |
-| 6 | Tests (Vitest + RTL: hooks + FlashCard flip) | pending | [phase-06-tests.md](./phase-06-tests.md) |
+| 1 | Project setup (Vite + Bun + React 19 + TS + Tailwind v4 + Fonts) | complete | [phase-01-project-setup.md](./phase-01-project-setup.md) |
+| 2 | Data layer (`words.json`, `Word` type, `useWords` hook) | complete | [phase-02-data-layer.md](./phase-02-data-layer.md) |
+| 3 | Core hooks (`useShuffle`, `useSpeech`, `useTheme`) | complete | [phase-03-core-hooks.md](./phase-03-core-hooks.md) |
+| 4 | FlashCard component (3D flip CSS Module, front/back, sound btn) | complete | [phase-04-flashcard-component.md](./phase-04-flashcard-component.md) |
+| 5 | App shell (TopBar, ThemeToggle, NextWordButton, App.tsx) | complete | [phase-05-app-shell.md](./phase-05-app-shell.md) |
+| 6 | Tests (Vitest + RTL: hooks + FlashCard flip) | complete | [phase-06-tests.md](./phase-06-tests.md) |
 
 ## Dependency Graph
 - Phase 1 → 2 → 3 → 4 → 5 → 6 (sequential)
