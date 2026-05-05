@@ -88,29 +88,29 @@ lexica/
 3. Add Tailwind v4: `bun add -D tailwindcss @tailwindcss/vite`. Wire into `vite.config.ts` via `tailwindcss()` plugin.
    3a. Add Biome v2: `bun add -D @biomejs/biome`. Init: `bunx biome init`. Replace generated `biome.json` with:
    `json
-    {
-      "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
-      "linter": {
-        "enabled": true,
-        "rules": { "recommended": true, "complexity": { "noImportantStyles": "off" } },
-        "domains": { "react": "recommended", "test": "all" }
-      },
-      "formatter": {
-        "enabled": true,
-        "indentStyle": "tab",
-        "indentWidth": 2,
-        "lineWidth": 80,
-        "lineEnding": "lf"
-      },
-      "javascript": {
-        "formatter": {
-          "semicolons": "always",
-          "trailingCommas": "all",
-          "quoteStyle": "double"
-        }
-      }
-    }
-    `
+ {
+   "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+   "linter": {
+     "enabled": true,
+     "rules": { "recommended": true, "complexity": { "noImportantStyles": "off" } },
+     "domains": { "react": "recommended", "test": "all" }
+   },
+   "formatter": {
+     "enabled": true,
+     "indentStyle": "tab",
+     "indentWidth": 2,
+     "lineWidth": 80,
+     "lineEnding": "lf"
+   },
+   "javascript": {
+     "formatter": {
+       "semicolons": "always",
+       "trailingCommas": "all",
+       "quoteStyle": "double"
+     }
+   }
+ }
+ `
    Add scripts to `package.json`: `"lint": "biome lint ./src"`, `"format": "biome format ./src --write"`, `"check": "biome check ./src"`
 4. Replace `src/index.css` with:
    - `@import "tailwindcss";`
@@ -128,15 +128,15 @@ lexica/
 8. Verify TS strict in `tsconfig.json`: `"strict": true`, `"target": "ESNext"`, `"jsx": "react-jsx"`.
    8a. Add import alias in `tsconfig.json` (`compilerOptions`):
    `json
-    "baseUrl": ".",
-    "paths": { "@/*": ["./src/*"] }
-    `
+ "baseUrl": ".",
+ "paths": { "@/*": ["./src/*"] }
+ `
    Add matching alias in `vite.config.ts`:
    `ts
-    import path from 'node:path';
-    // inside defineConfig:
-    resolve: { alias: { '@': path.resolve(__dirname, './src') } }
-    `
+ import path from 'node:path';
+ // inside defineConfig:
+ resolve: { alias: { '@': path.resolve(__dirname, './src') } }
+ `
 9. Run `bun run dev` — confirm:
    - Page loads at `localhost:5173`
    - "Lexica" displayed in Crimson Pro
@@ -152,9 +152,9 @@ lexica/
 - [x] Wire Google Fonts in `index.html`
 - [x] Placeholder `App.tsx` rendering "Lexica"
 - [x] Configure `@/` import alias in `tsconfig.app.json` + `vite.config.ts`
-- [ ] Verify `bun run dev` serves correctly (visual check)
+- [x] Verify `bun run dev` serves correctly (visual check)
 - [x] Pre-commit gate: `bun run build` ✓ (190KB bundle), `bun run lint` ✓, `bun run check` ✓
-- [ ] Commit: `chore: scaffold Vite + React 19 + Tailwind v4 + Biome`
+- [x] Commit: `chore: scaffold Vite + React 19 + Tailwind v4 + Biome`
 
 ## Success Criteria
 
