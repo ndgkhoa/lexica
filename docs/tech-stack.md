@@ -24,6 +24,10 @@
 - **useState + useCallback** — sufficient for card index, flip state, shuffle
 - No Redux / Zustand — overkill for single-screen app
 
+## Code Style
+- **Arrow functions** — all functions use arrow function syntax (`const fn = () => {}`) for consistency
+- **TypeScript strict mode** — enabled by default; leverages TS 6 strict mode for runtime safety
+
 ## Code Quality
 - **Biome 2.4.14** — single tool for linting + formatting (replaces ESLint + Prettier); schema `2.4.14`; `biome.json` in root
 

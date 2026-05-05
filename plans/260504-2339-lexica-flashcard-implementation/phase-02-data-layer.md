@@ -6,7 +6,7 @@
 
 ## Overview
 - Priority: P0
-- Status: pending
+- Status: complete
 - Define `Word` type, ship 20-word `public/words.json`, build `useWords` hook with fetch + loading/error state.
 
 ## Key Insights
@@ -14,6 +14,7 @@
 - Browser caches `words.json` on subsequent visits — no manual cache layer needed.
 - `useWords` returns `{ words, loading, error }` discriminated state — caller renders accordingly.
 - Use `AbortController` to cancel fetch on unmount to avoid React 19 strict-mode double-fire warnings.
+- All functions use arrow function syntax for consistency with codebase style guide.
 
 ## Requirements
 - Functional:
@@ -57,9 +58,13 @@ public/
    ```
 2. Convert wireframe `CARDS` array (lines 422-443 of wireframe) to JSON. Save to `public/words.json` as a JSON array of `Word` objects.
 3. Validate JSON is parseable: `bun -e 'console.log(JSON.parse(await Bun.file("public/words.json").text()).length)'` → expect `20`.
-4. Author `src/hooks/use-words.ts` using `@/` alias for imports:
+4. Author `src/hooks/use-words.ts` using `@/` alias for imports and arrow function syntax:
    ```ts
    import type { Word } from '@/types/word';
+   
+   export const useWords = (): WordsState => {
+     // ...
+   }
    ```
    - Signature: `useWords(): { words: Word[]; loading: boolean; error: Error | null }`
    - Uses `useEffect` with `AbortController`
@@ -69,21 +74,21 @@ public/
 5. Confirm `App.tsx` placeholder can call `useWords()` and log length — verify dev console shows `20`.
 
 ## Todo
-- [ ] Define `Word` interface
-- [ ] Create `public/words.json` (20 records)
-- [ ] Implement `useWords` hook with abort cleanup
-- [ ] Verify hook returns 20 words in console
-- [ ] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
-- [ ] Commit: `feat: add Word type, words.json seed, useWords hook`
+- [x] Define `Word` interface
+- [x] Create `public/words.json` (20 records)
+- [x] Implement `useWords` hook with abort cleanup
+- [x] Verify hook returns 20 words in console
+- [x] Pre-commit gate: `bun run build && bun run lint && bun run check` — all must pass
+- [x] Commit: `feat: add Word type, words.json seed, useWords hook`
 
 ## Success Criteria
-- `useWords()` resolves with `words.length === 20` after mount.
-- `loading` flips `true → false` exactly once.
-- Aborting (unmount during fetch) does NOT log unhandled promise warnings.
-- TS compiler reports zero errors.
+- [x] `useWords()` resolves with `words.length === 20` after mount.
+- [x] `loading` flips `true → false` exactly once.
+- [x] Aborting (unmount during fetch) does NOT log unhandled promise warnings.
+- [x] TS compiler reports zero errors.
 
 ## Risks
-- **JSON quote escaping** — Vietnamese chars + nested single quotes in `example` strings; use double-quote JSON strings and escape inner quotes (or use Unicode `‘` / `’` curly quotes).
+- **JSON quote escaping** — Vietnamese chars + nested single quotes in `example` strings; use double-quote JSON strings and escape inner quotes (or use Unicode `'` / `'` curly quotes).
 - **Strict-mode double fetch** — React 19 dev mode double-invokes effects; abort handles it.
 
 ## Security
