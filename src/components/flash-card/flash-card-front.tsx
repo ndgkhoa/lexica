@@ -12,7 +12,7 @@ export const FlashCardFront = ({
 	onSpeak,
 	isPlaying,
 }: FlashCardFrontProps) => (
-	<div className="relative flex flex-col items-center justify-center w-full h-full px-9 py-8 bg-[var(--color-surface)] border border-[var(--color-border)] shadow-[var(--shadow-card)] rounded-[20px]">
+	<div className="relative flex flex-col items-center justify-center w-full h-full px-9 py-8">
 		<SoundButton isPlaying={isPlaying} onClick={onSpeak} />
 
 		<div className="flex flex-col items-center gap-3 text-center">

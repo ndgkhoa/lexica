@@ -5,7 +5,7 @@ interface FlashCardBackProps {
 }
 
 export const FlashCardBack = ({ word }: FlashCardBackProps) => (
-	<div className="relative flex flex-col items-start justify-center w-full h-full px-9 py-8 bg-[var(--color-surface)] border border-[var(--color-border)] shadow-[var(--shadow-card)] rounded-[20px]">
+	<div className="relative flex flex-col items-start justify-center w-full h-full px-9 py-8">
 		<span
 			className="absolute top-4 right-5 text-[14px] italic text-[var(--color-text-muted)]"
 			style={{ fontFamily: "var(--font-display)" }}
