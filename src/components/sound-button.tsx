@@ -20,7 +20,7 @@ export const SoundButton = ({
 			aria-label={ariaLabel}
 			aria-pressed={isPlaying}
 			onClick={handleClick}
-			className="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full bg-transparent transition-colors duration-150 hover:bg-[var(--color-accent-subtle)] hover:text-[var(--color-accent)] active:scale-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] text-[var(--color-text-muted)]"
+			className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-transparent text-(--color-text-muted) transition-colors duration-150 hover:bg-(--color-accent-subtle) hover:text-(--color-accent) focus-visible:outline-2 focus-visible:outline-(--color-accent) focus-visible:outline-offset-2 active:scale-90"
 		>
 			{isPlaying ? (
 				<svg

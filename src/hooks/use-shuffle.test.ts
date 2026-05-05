@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react";
+import { act, renderHook } from "@testing-library/react";
 import { useShuffle } from "@/hooks/use-shuffle";
 import type { Word } from "@/types/word";
 

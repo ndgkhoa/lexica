@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { useWords } from "@/hooks/use-words";
+import { FlashCard } from "@/components/flash-card/flash-card";
+import { NextWordButton } from "@/components/next-word-button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { TopBar } from "@/components/top-bar";
 import { useShuffle } from "@/hooks/use-shuffle";
 import { useSpeech } from "@/hooks/use-speech";
 import { useTheme } from "@/hooks/use-theme";
-import { FlashCard } from "@/components/flash-card/flash-card";
-import { TopBar } from "@/components/top-bar";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { NextWordButton } from "@/components/next-word-button";
+import { useWords } from "@/hooks/use-words";
 
 export default function App() {
 	const { words, loading, error } = useWords();
@@ -30,7 +30,7 @@ export default function App() {
 
 	if (loading) {
 		return (
-			<div className="min-h-dvh flex items-center justify-center text-(--color-text-muted)">
+			<div className="flex min-h-dvh items-center justify-center text-(--color-text-muted)">
 				Loading…
 			</div>
 		);
@@ -38,7 +38,7 @@ export default function App() {
 
 	if (error || !currentWord) {
 		return (
-			<div className="min-h-dvh flex items-center justify-center text-(--color-text-secondary)">
+			<div className="flex min-h-dvh items-center justify-center text-(--color-text-secondary)">
 				Failed to load words.
 			</div>
 		);
@@ -52,8 +52,12 @@ export default function App() {
 			<div aria-live="polite" aria-atomic="true" className="sr-only">
 				{currentWord.word}
 			</div>
-			<main className="flex flex-col items-center gap-8 w-full">
-				<FlashCard word={currentWord} onSpeak={handleSoundClick} isPlaying={isPlaying} />
+			<main className="flex w-full flex-col items-center gap-8">
+				<FlashCard
+					word={currentWord}
+					onSpeak={handleSoundClick}
+					isPlaying={isPlaying}
+				/>
 				<NextWordButton onClick={next} />
 			</main>
 		</>

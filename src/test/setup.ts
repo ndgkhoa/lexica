@@ -21,7 +21,8 @@ globalThis.speechSynthesis = {
 	},
 	removeEventListener: (_: string, cb: EventListenerOrEventListenerObject) => {
 		const fn = typeof cb === "function" ? cb : cb.handleEvent.bind(cb);
-		listeners.voiceschanged = listeners.voiceschanged?.filter((x) => x !== fn) ?? [];
+		listeners.voiceschanged =
+			listeners.voiceschanged?.filter((x) => x !== fn) ?? [];
 	},
 	dispatchEvent: () => true,
 	onvoiceschanged: null,
@@ -40,5 +41,7 @@ globalThis.SpeechSynthesisUtterance = class {
 	onstart: (() => void) | null = null;
 	onend: (() => void) | null = null;
 	onerror: (() => void) | null = null;
-	constructor(text: string) { this.text = text; }
+	constructor(text: string) {
+		this.text = text;
+	}
 } as unknown as typeof SpeechSynthesisUtterance;

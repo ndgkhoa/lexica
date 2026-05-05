@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import type { Word } from "@/types/word";
 import styles from "@/components/flash-card/flash-card.module.css";
 import { FlashCardBack } from "@/components/flash-card/flash-card-back";
 import { FlashCardFront } from "@/components/flash-card/flash-card-front";
+import type { Word } from "@/types/word";
 
 interface FlashCardProps {
 	word: Word;

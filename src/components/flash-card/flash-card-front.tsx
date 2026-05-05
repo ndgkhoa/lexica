@@ -12,12 +12,12 @@ export const FlashCardFront = ({
 	onSpeak,
 	isPlaying,
 }: FlashCardFrontProps) => (
-	<div className="relative flex flex-col items-center justify-center w-full h-full px-9 py-8">
+	<div className="relative flex h-full w-full flex-col items-center justify-center px-9 py-8">
 		<SoundButton isPlaying={isPlaying} onClick={onSpeak} />
 
 		<div className="flex flex-col items-center gap-3 text-center">
 			<span
-				className="leading-[1.1] tracking-tight text-[var(--color-text-primary)]"
+				className="text-(--color-text-primary) leading-[1.1] tracking-tight"
 				style={{
 					fontFamily: "var(--font-display)",
 					fontSize: "clamp(40px, 9vw, 76px)",
@@ -27,14 +27,14 @@ export const FlashCardFront = ({
 			</span>
 
 			<span
-				className="text-base text-[var(--color-text-secondary)]"
+				className="text-(--color-text-secondary) text-base"
 				style={{ fontFamily: "var(--font-ui)" }}
 			>
 				{word.ipa}
 			</span>
 
 			<span
-				className="text-[15px] font-medium text-[var(--color-accent)] bg-[var(--color-accent-subtle)] rounded-full px-[14px] py-1"
+				className="rounded-full bg-(--color-accent-subtle) px-[14px] py-1 font-medium text-[15px] text-(--color-accent)"
 				style={{ fontFamily: "var(--font-ui)" }}
 			>
 				{word.vietnamese}

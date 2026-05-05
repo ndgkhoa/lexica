@@ -5,33 +5,33 @@ interface FlashCardBackProps {
 }
 
 export const FlashCardBack = ({ word }: FlashCardBackProps) => (
-	<div className="relative flex flex-col items-start justify-center w-full h-full px-9 py-8">
+	<div className="relative flex h-full w-full flex-col items-start justify-center px-9 py-8">
 		<span
-			className="absolute top-4 right-5 text-[14px] italic text-[var(--color-text-muted)]"
+			className="absolute top-4 right-5 text-[14px] text-(--color-text-muted) italic"
 			style={{ fontFamily: "var(--font-display)" }}
 		>
 			{word.word}
 		</span>
 
-		<div className="flex flex-col items-start gap-3.5 w-full">
+		<div className="flex w-full flex-col items-start gap-3.5">
 			<span
-				className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--color-accent)] bg-[var(--color-accent-subtle)] rounded-sm px-2.5 py-1"
+				className="rounded-sm bg-(--color-accent-subtle) px-2.5 py-1 text-[10px] font-semibold tracking-widest text-(--color-accent) uppercase"
 				style={{ fontFamily: "var(--font-ui)" }}
 			>
 				{word.pos}
 			</span>
 
 			<p
-				className="text-[18px] leading-[1.6] text-[var(--color-text-primary)]"
+				className="text-[18px] text-(--color-text-primary) leading-[1.6]"
 				style={{ fontFamily: "var(--font-ui)" }}
 			>
 				{word.definition}
 			</p>
 
-			<div className="w-8 h-px bg-[var(--color-border)]" />
+			<div className="h-px w-8 bg-(--color-border)" />
 
 			<p
-				className="text-[17px] italic leading-[1.6] text-[var(--color-text-secondary)]"
+				className="text-[17px] text-(--color-text-secondary) italic leading-[1.6]"
 				style={{ fontFamily: "var(--font-display)" }}
 			>
 				{word.example}
