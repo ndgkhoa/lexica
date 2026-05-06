@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { ErrorState } from "@/components/error-state";
 import { FlashCard } from "@/components/flash-card/flash-card";
+import { LoadingSpinner } from "@/components/loading-spinner";
 import { NextWordButton } from "@/components/next-word-button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { TopBar } from "@/components/top-bar";
@@ -30,17 +32,25 @@ export default function App() {
 
 	if (loading) {
 		return (
-			<div className="flex min-h-dvh items-center justify-center text-(--color-text-muted)">
-				Loading…
-			</div>
+			<>
+				<TopBar>
+					<ThemeToggle theme={theme} onToggle={toggle} />
+				</TopBar>
+				<main className="flex w-full flex-col items-center gap-8">
+					<LoadingSpinner />
+				</main>
+			</>
 		);
 	}
 
 	if (error || !currentWord) {
 		return (
-			<div className="flex min-h-dvh items-center justify-center text-(--color-text-secondary)">
-				Failed to load words.
-			</div>
+			<>
+				<TopBar>
+					<ThemeToggle theme={theme} onToggle={toggle} />
+				</TopBar>
+				<ErrorState />
+			</>
 		);
 	}
 

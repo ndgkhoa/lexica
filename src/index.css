@@ -79,6 +79,75 @@ body {
 	align-items: center;
 }
 
+/* Error state — fade in + icon shake */
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes shake {
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+	20% {
+		transform: rotate(-10deg);
+	}
+	40% {
+		transform: rotate(10deg);
+	}
+	60% {
+		transform: rotate(-6deg);
+	}
+	80% {
+		transform: rotate(6deg);
+	}
+}
+
+.error-wrapper {
+	animation: fade-up 400ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.error-icon {
+	animation: shake 600ms cubic-bezier(0.4, 0, 0.2, 1) 300ms both;
+}
+
+/* Bouncing dot loader */
+@keyframes bounce-dot {
+	0%,
+	80%,
+	100% {
+		transform: translateY(0);
+		opacity: 0.3;
+	}
+	40% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+}
+
+.dot-loader span {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 9999px;
+	background-color: var(--color-accent);
+	animation: bounce-dot 1.2s ease-in-out infinite;
+}
+
+.dot-loader span:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.dot-loader span:nth-child(3) {
+	animation-delay: 0.4s;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	* {
 		transition-duration: 0.01ms !important;
