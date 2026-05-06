@@ -5,6 +5,7 @@ import type { Word } from "@/types/word";
 const makeWords = (n: number): Word[] =>
 	Array.from({ length: n }, (_, i) => ({
 		word: `word${i}`,
+		level: "",
 		ipa: "",
 		pos: "noun",
 		vietnamese: "",
