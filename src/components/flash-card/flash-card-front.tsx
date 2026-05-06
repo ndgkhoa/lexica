@@ -33,12 +33,15 @@ export const FlashCardFront = ({
 				{word.ipa}
 			</span>
 
-			<span
-				className="rounded-full bg-(--color-accent-subtle) px-[14px] py-1 font-medium text-[15px] text-(--color-accent)"
-				style={{ fontFamily: "var(--font-ui)" }}
-			>
-				{word.vietnamese}
-			</span>
+			<div className="flex flex-col items-center gap-2 pt-1">
+				<div className="h-px w-6 bg-(--color-border)" />
+				<span
+					className="text-[20px] text-(--color-text-secondary) italic leading-tight"
+					style={{ fontFamily: "var(--font-display)" }}
+				>
+					{word.vietnamese}
+				</span>
+			</div>
 		</div>
 	</div>
 );
