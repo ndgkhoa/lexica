@@ -14,12 +14,20 @@ export const FlashCardBack = ({ word }: FlashCardBackProps) => (
 		</span>
 
 		<div className="flex w-full flex-col items-start gap-3.5">
-			<span
-				className="rounded-sm bg-(--color-accent-subtle) px-2.5 py-1 text-[10px] font-semibold tracking-widest text-(--color-accent) uppercase"
-				style={{ fontFamily: "var(--font-ui)" }}
-			>
-				{word.pos}
-			</span>
+			<div className="flex items-center gap-1.5">
+				<span
+					className="rounded-sm bg-(--color-accent-subtle) px-2.5 py-1 text-[10px] font-semibold tracking-widest text-(--color-accent) uppercase"
+					style={{ fontFamily: "var(--font-ui)" }}
+				>
+					{word.pos}
+				</span>
+				<span
+					className="rounded-sm bg-(--color-border) px-2.5 py-1 text-[10px] font-semibold tracking-widest text-(--color-text-secondary) uppercase"
+					style={{ fontFamily: "var(--font-ui)" }}
+				>
+					{word.level}
+				</span>
+			</div>
 
 			<p
 				className="text-[18px] text-(--color-text-primary) leading-[1.6]"

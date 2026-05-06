@@ -5,6 +5,7 @@ import type { Word } from "@/types/word";
 
 const WORD: Word = {
 	word: "ephemeral",
+	level: "B2",
 	ipa: "/ɪˈfem.ər.əl/",
 	pos: "adjective",
 	vietnamese: "phù du",
