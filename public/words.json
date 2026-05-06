@@ -1161,15 +1161,6 @@
     "example": "\"The archaeologists discovered ancient ruins beneath the city streets.\""
   },
   {
-    "word": "and",
-    "level": "A1",
-    "ipa": "/ænd/",
-    "pos": "conjunction",
-    "vietnamese": "và, cùng với",
-    "definition": "Used to connect words, clauses, or sentences of the same type.",
-    "example": "\"She picked up her coat and left the office without a word.\""
-  },
-  {
     "word": "anger",
     "level": "B1",
     "ipa": "/ˈæŋ.ɡər/",
@@ -1483,15 +1474,6 @@
     "vietnamese": "vẻ ngoài, sự xuất hiện",
     "definition": "The way someone or something looks; the act of arriving or becoming visible.",
     "example": "\"First impressions are often based on physical appearance rather than character.\""
-  },
-  {
-    "word": "apple",
-    "level": "A1",
-    "ipa": "/ˈæp.əl/",
-    "pos": "noun",
-    "vietnamese": "quả táo",
-    "definition": "A round fruit with red, green, or yellow skin and crisp white flesh.",
-    "example": "\"She packed an apple and a sandwich for her lunch break.\""
   },
   {
     "word": "application",
@@ -2286,15 +2268,6 @@
     "example": "\"The building was badly damaged in the storm and had to be demolished.\""
   },
   {
-    "word": "bag",
-    "level": "A1",
-    "ipa": "/bæɡ/",
-    "pos": "noun",
-    "vietnamese": "túi, cặp, bao",
-    "definition": "A flexible container made of cloth, paper, or leather for carrying things.",
-    "example": "\"She packed her bag the night before so she wouldn't rush in the morning.\""
-  },
-  {
     "word": "baggage",
     "level": "B1",
     "ipa": "/ˈbæɡ.ɪdʒ/",
@@ -2581,15 +2554,6 @@
     "vietnamese": "trở thành, trở nên",
     "definition": "To begin to be something; to start having a particular quality or role.",
     "example": "\"He worked hard for years and eventually became the head of the department.\""
-  },
-  {
-    "word": "bed",
-    "level": "A1",
-    "ipa": "/bed/",
-    "pos": "noun",
-    "vietnamese": "giường, luống (hoa/rau)",
-    "definition": "A piece of furniture for sleeping on; a flat area of ground for growing plants.",
-    "example": "\"She collapsed into bed exhausted after the sixteen-hour flight.\""
   },
   {
     "word": "bedroom",
@@ -2896,15 +2860,6 @@
     "vietnamese": "sinh học",
     "definition": "The scientific study of the natural processes of living things.",
     "example": "\"She studied biology at university and now works as a research scientist.\""
-  },
-  {
-    "word": "bird",
-    "level": "A1",
-    "ipa": "/bɜːd/",
-    "pos": "noun",
-    "vietnamese": "con chim",
-    "definition": "A warm-blooded animal with feathers, wings, and a beak, most of which can fly.",
-    "example": "\"A small bird landed on the windowsill and sang for a few seconds.\""
   },
   {
     "word": "birth",
@@ -3247,15 +3202,6 @@
     "vietnamese": "bát, tô, chén",
     "definition": "A round, deep dish used for food or liquids; the contents of such a dish.",
     "example": "\"She had a bowl of warm soup to ward off the winter chill.\""
-  },
-  {
-    "word": "box",
-    "level": "A1",
-    "ipa": "/bɒks/",
-    "pos": "noun",
-    "vietnamese": "hộp, thùng, ô",
-    "definition": "A container with flat sides and a lid, used for storage or transport.",
-    "example": "\"He packed all his belongings into cardboard boxes before the move.\""
   },
   {
     "word": "boy",
@@ -3609,15 +3555,6 @@
     "example": "\"The dog buried its bone in the corner of the garden.\""
   },
   {
-    "word": "bus",
-    "level": "A1",
-    "ipa": "/bʌs/",
-    "pos": "noun",
-    "vietnamese": "xe buýt, xe khách",
-    "definition": "A large road vehicle that carries passengers, usually along a fixed route.",
-    "example": "\"She takes the bus to work every morning to avoid paying for parking.\""
-  },
-  {
     "word": "bush",
     "level": "A2",
     "ipa": "/bʊʃ/",
@@ -3663,15 +3600,6 @@
     "example": "\"She's been very busy lately, preparing for the launch of her new product.\""
   },
   {
-    "word": "but",
-    "level": "A1",
-    "ipa": "/bʌt/",
-    "pos": "conjunction",
-    "vietnamese": "nhưng, mà, song",
-    "definition": "Used to introduce a phrase that contrasts with what has just been said.",
-    "example": "\"The exam was difficult, but she managed to answer every question.\""
-  },
-  {
     "word": "butter",
     "level": "A1",
     "ipa": "/ˈbʌt.ər/",
@@ -3708,15 +3636,6 @@
     "example": "\"The house attracted several interested buyers within a week of listing.\""
   },
   {
-    "word": "by",
-    "level": "A1",
-    "ipa": "/baɪ/",
-    "pos": "preposition",
-    "vietnamese": "bởi, bằng cách, gần, trước",
-    "definition": "Indicating the agent or means; near; not later than; past.",
-    "example": "\"The novel was written by one of the most celebrated authors of the century.\""
-  },
-  {
     "word": "bye",
     "level": "A1",
     "ipa": "/baɪ/",
@@ -3742,15 +3661,6 @@
     "vietnamese": "dây cáp, dây điện",
     "definition": "A thick rope of wire or fibre; a bundle of insulated wires for electricity or data.",
     "example": "\"The engineer replaced the damaged cable that had been causing the power outage.\""
-  },
-  {
-    "word": "cake",
-    "level": "A1",
-    "ipa": "/keɪk/",
-    "pos": "noun",
-    "vietnamese": "bánh ngọt, bánh kem",
-    "definition": "A sweet baked food made from flour, eggs, butter, and sugar.",
-    "example": "\"She baked a three-tiered birthday cake decorated with fresh strawberries.\""
   },
   {
     "word": "calculate",
@@ -3942,15 +3852,6 @@
     "example": "\"The photographer managed to capture the exact moment the eagle caught its prey.\""
   },
   {
-    "word": "car",
-    "level": "A1",
-    "ipa": "/kɑːr/",
-    "pos": "noun",
-    "vietnamese": "xe ô tô, xe hơi",
-    "definition": "A road vehicle with an engine, four wheels, and seats for a small number of people.",
-    "example": "\"She bought her first car after passing her driving test on the second attempt.\""
-  },
-  {
     "word": "card",
     "level": "A1",
     "ipa": "/kɑːd/",
@@ -4075,15 +3976,6 @@
     "vietnamese": "lâu đài, pháo đài",
     "definition": "A large medieval building with thick stone walls built for defence.",
     "example": "\"They visited a castle on the cliff that had stood for over eight centuries.\""
-  },
-  {
-    "word": "cat",
-    "level": "A1",
-    "ipa": "/kæt/",
-    "pos": "noun",
-    "vietnamese": "con mèo",
-    "definition": "A small domesticated carnivorous mammal kept as a pet.",
-    "example": "\"The cat curled up on the sofa and purred contentedly.\""
   },
   {
     "word": "catch",
@@ -6192,15 +6084,6 @@
     "example": "\"The floor covering was replaced with hardwood after the renovation.\""
   },
   {
-    "word": "cow",
-    "level": "A1",
-    "ipa": "/kaʊ/",
-    "pos": "noun",
-    "vietnamese": "con bò cái",
-    "definition": "A fully grown female animal of a domestic cattle breed.",
-    "example": "\"The farmer milked the cows every morning at dawn.\""
-  },
-  {
     "word": "crack",
     "level": "B2",
     "ipa": "/kræk/",
@@ -6460,15 +6343,6 @@
     "vietnamese": "văn hóa, nền văn hóa",
     "definition": "The arts, beliefs, and customs of a particular society; microorganisms grown in a lab.",
     "example": "\"Living abroad gave her a deep appreciation for different cultures.\""
-  },
-  {
-    "word": "cup",
-    "level": "A1",
-    "ipa": "/kʌp/",
-    "pos": "noun",
-    "vietnamese": "cái tách, cốc, cúp",
-    "definition": "A small bowl-shaped container for drinking from; a trophy.",
-    "example": "\"She wrapped her hands around a warm cup of tea on the cold morning.\""
   },
   {
     "word": "cupboard",
@@ -7974,15 +7848,6 @@
     "example": "\"She is divorced and lives alone with her two children.\""
   },
   {
-    "word": "do",
-    "level": "A1",
-    "ipa": "/duː/",
-    "pos": "verb",
-    "vietnamese": "làm, thực hiện",
-    "definition": "To perform or carry out an action; to be sufficient.",
-    "example": "\"I need to do a few things before I can leave the office.\""
-  },
-  {
     "word": "doctor",
     "level": "A1",
     "ipa": "/ˈdɒk.tər/",
@@ -7999,15 +7864,6 @@
     "vietnamese": "tài liệu, văn bản",
     "definition": "A piece of written, printed, or electronic matter that provides information.",
     "example": "\"Please attach all supporting documents when you submit your application.\""
-  },
-  {
-    "word": "dog",
-    "level": "A1",
-    "ipa": "/dɒɡ/",
-    "pos": "noun",
-    "vietnamese": "con chó",
-    "definition": "A domesticated carnivorous mammal commonly kept as a pet or working animal.",
-    "example": "\"Every morning she takes her dog for a walk along the riverside path.\""
   },
   {
     "word": "dollar",
@@ -8602,15 +8458,6 @@
     "vietnamese": "nỗ lực, sự cố gắng",
     "definition": "A vigorous or determined attempt; the use of physical or mental energy.",
     "example": "\"She put a great deal of effort into preparing for the final examination.\""
-  },
-  {
-    "word": "egg",
-    "level": "A1",
-    "ipa": "/eɡ/",
-    "pos": "noun",
-    "vietnamese": "quả trứng",
-    "definition": "An oval object laid by a female bird or reptile; a cell from which offspring develop.",
-    "example": "\"She fried two eggs and made toast for a quick breakfast.\""
   },
   {
     "word": "either",
@@ -10593,15 +10440,6 @@
     "example": "\"He firmly refused to change his decision.\""
   },
   {
-    "word": "fish",
-    "level": "A1",
-    "ipa": "/fɪʃ/",
-    "pos": "noun",
-    "vietnamese": "cá",
-    "definition": "A cold-blooded vertebrate animal that lives in water.",
-    "example": "\"He caught a large fish at the river this morning.\""
-  },
-  {
     "word": "fishing",
     "level": "A1",
     "ipa": "/ˈfɪʃ.ɪŋ/",
@@ -11718,15 +11556,6 @@
     "example": "\"He used glue to repair the broken handle of the cup.\""
   },
   {
-    "word": "go",
-    "level": "B1",
-    "ipa": "/ɡəʊ/",
-    "pos": "verb",
-    "vietnamese": "đi, di chuyển",
-    "definition": "To move from one place to another.",
-    "example": "\"We will go to the beach this weekend if the weather is good.\""
-  },
-  {
     "word": "goal",
     "level": "A1",
     "ipa": "/ɡəʊl/",
@@ -12310,15 +12139,6 @@
     "vietnamese": "phải, cần phải",
     "definition": "Used to express obligation or necessity.",
     "example": "\"You have to submit the form before the deadline.\""
-  },
-  {
-    "word": "he",
-    "level": "A1",
-    "ipa": "/hiː/",
-    "pos": "pronoun",
-    "vietnamese": "anh ấy, ông ấy",
-    "definition": "Used to refer to a male person or animal previously mentioned.",
-    "example": "\"He arrived at the office before anyone else this morning.\""
   },
   {
     "word": "head",
@@ -13005,15 +12825,6 @@
     "example": "\"Her husband prepared a special dinner for their anniversary.\""
   },
   {
-    "word": "I",
-    "level": "A1",
-    "ipa": "/aɪ/",
-    "pos": "pronoun",
-    "vietnamese": "tôi, mình",
-    "definition": "Used by a speaker to refer to themselves.",
-    "example": "\"I would like a cup of coffee, please.\""
-  },
-  {
     "word": "ice",
     "level": "A1",
     "ipa": "/aɪs/",
@@ -13066,15 +12877,6 @@
     "vietnamese": "danh tính, bản sắc",
     "definition": "Who a person is, or the qualities and characteristics that make them unique.",
     "example": "\"She explored her cultural identity through art and writing.\""
-  },
-  {
-    "word": "if",
-    "level": "A1",
-    "ipa": "/ɪf/",
-    "pos": "conjunction",
-    "vietnamese": "nếu, nếu như",
-    "definition": "Used to introduce a condition or a hypothetical situation.",
-    "example": "\"If it rains tomorrow, we will cancel the trip.\""
   },
   {
     "word": "ignore",
@@ -13354,15 +13156,6 @@
     "vietnamese": "sự cải thiện, tiến bộ",
     "definition": "The act of becoming better, or a change that makes something better.",
     "example": "\"There has been a noticeable improvement in her grades this semester.\""
-  },
-  {
-    "word": "in",
-    "level": "A2",
-    "ipa": "/ɪn/",
-    "pos": "preposition",
-    "vietnamese": "trong, ở trong",
-    "definition": "Used to indicate location, time, or inclusion within something.",
-    "example": "\"The keys are in the top drawer of the desk.\""
   },
   {
     "word": "inability",
@@ -14209,15 +14002,6 @@
     "vietnamese": "vấn đề, số báo",
     "definition": "An important topic or problem for debate or discussion.",
     "example": "\"Climate change is one of the most pressing issues of our time.\""
-  },
-  {
-    "word": "it",
-    "level": "A1",
-    "ipa": "/ɪt/",
-    "pos": "pronoun",
-    "vietnamese": "nó",
-    "definition": "Used to refer to a thing, animal, or situation previously mentioned.",
-    "example": "\"I found my phone — it was under the sofa cushion.\""
   },
   {
     "word": "its",
@@ -17478,15 +17262,6 @@
     "example": "\"The city looks beautiful at night when all the lights are on.\""
   },
   {
-    "word": "no",
-    "level": "A1",
-    "ipa": "/nəʊ/",
-    "pos": "adverb",
-    "vietnamese": "không",
-    "definition": "Used to express refusal, denial, or disagreement.",
-    "example": "\"No, thank you — I have already had enough to eat.\""
-  },
-  {
     "word": "nobody",
     "level": "A2",
     "ipa": "/ˈnəʊ.bɒd.i/",
@@ -18000,15 +17775,6 @@
     "example": "\"The old building in the centre of town is over two hundred years old.\""
   },
   {
-    "word": "on",
-    "level": "A2",
-    "ipa": "/ɒn/",
-    "pos": "preposition",
-    "vietnamese": "trên, vào",
-    "definition": "Physically in contact with and supported by a surface; used to indicate time.",
-    "example": "\"The keys are on the table next to the door.\""
-  },
-  {
     "word": "once",
     "level": "A1",
     "ipa": "/wʌns/",
@@ -18196,15 +17962,6 @@
     "vietnamese": "lựa chọn",
     "definition": "A thing that is or may be chosen.",
     "example": "\"You have several options to consider before making a decision.\""
-  },
-  {
-    "word": "or",
-    "level": "A1",
-    "ipa": "/ɔːr/",
-    "pos": "conjunction",
-    "vietnamese": "hoặc, hay là",
-    "definition": "Used to connect alternatives or different possibilities.",
-    "example": "\"Would you like tea or coffee with your breakfast?\""
   },
   {
     "word": "orange",
@@ -19231,15 +18988,6 @@
     "vietnamese": "mảnh, miếng, phần",
     "definition": "A part or portion of something separated from the whole.",
     "example": "\"Can I have another piece of cake, please?\""
-  },
-  {
-    "word": "pig",
-    "level": "A1",
-    "ipa": "/pɪɡ/",
-    "pos": "noun",
-    "vietnamese": "con lợn, con heo",
-    "definition": "A farm animal with pink or black skin and a flat nose.",
-    "example": "\"The farmer raises pigs and chickens on his small farm.\""
   },
   {
     "word": "pile",
@@ -23796,15 +23544,6 @@
     "example": "\"He shaves every morning before going to work.\""
   },
   {
-    "word": "she",
-    "level": "A1",
-    "ipa": "/ʃiː/",
-    "pos": "pronoun",
-    "vietnamese": "cô ấy",
-    "definition": "Used to refer to a female person or animal.",
-    "example": "\"She is my best friend from college.\""
-  },
-  {
     "word": "sheep",
     "level": "A1",
     "ipa": "/ʃiːp/",
@@ -24595,15 +24334,6 @@
     "vietnamese": "tuyết",
     "definition": "Soft white pieces of frozen water that fall from the sky.",
     "example": "\"The mountains were covered with white snow.\""
-  },
-  {
-    "word": "so",
-    "level": "A2",
-    "ipa": "/səʊ/",
-    "pos": "adverb, conjunction",
-    "vietnamese": "rất, vì vậy",
-    "definition": "To such a degree; therefore; as a result.",
-    "example": "\"It was so hot that we stayed inside all day.\""
   },
   {
     "word": "soap",
@@ -26856,15 +26586,6 @@
     "example": "\"That is my house over there.\""
   },
   {
-    "word": "the",
-    "level": "A1",
-    "ipa": "/ðə/",
-    "pos": "article",
-    "vietnamese": "(mạo từ xác định)",
-    "definition": "Used before a noun referring to a specific thing.",
-    "example": "\"The sun is shining brightly today.\""
-  },
-  {
     "word": "theater",
     "level": "A2",
     "ipa": "/ˈθiː.ə.tər/",
@@ -27322,15 +27043,6 @@
     "vietnamese": "tiêu đề, danh hiệu",
     "definition": "The name of a book, film, or song.",
     "example": "\"The title of this book is interesting.\""
-  },
-  {
-    "word": "to",
-    "level": "A1",
-    "ipa": "/tuː/",
-    "pos": "preposition",
-    "vietnamese": "đến, để",
-    "definition": "Used to show direction or purpose.",
-    "example": "\"We are going to the cinema tonight.\""
   },
   {
     "word": "today",
@@ -28377,15 +28089,6 @@
     "example": "\"It's unusually warm for this time of year.\""
   },
   {
-    "word": "up",
-    "level": "A2",
-    "ipa": "/ʌp/",
-    "pos": "adverb, preposition",
-    "vietnamese": "lên, ở trên",
-    "definition": "Toward a higher position.",
-    "example": "\"Look up at the stars in the sky.\""
-  },
-  {
     "word": "upon",
     "level": "A2",
     "ipa": "/əˈpɒn/",
@@ -29086,15 +28789,6 @@
     "vietnamese": "cách, đường",
     "definition": "A method or direction.",
     "example": "\"This is the best way to learn English.\""
-  },
-  {
-    "word": "we",
-    "level": "A1",
-    "ipa": "/wiː/",
-    "pos": "pronoun",
-    "vietnamese": "chúng ta, chúng tôi",
-    "definition": "Used to refer to the speaker and others.",
-    "example": "\"We are going to the cinema tonight.\""
   },
   {
     "word": "weak",
@@ -30013,15 +29707,6 @@
     "vietnamese": "màu vàng",
     "definition": "The color of the sun or a banana.",
     "example": "\"She painted the kitchen yellow.\""
-  },
-  {
-    "word": "yes",
-    "level": "A1",
-    "ipa": "/jes/",
-    "pos": "exclamation",
-    "vietnamese": "vâng, có",
-    "definition": "Used to give a positive answer.",
-    "example": "\"Yes, I would love to come to your party.\""
   },
   {
     "word": "yesterday",
